@@ -2,12 +2,6 @@
 #define _USER_CONFIG_H_
 
 ///////////////////////////////////////////////////////////////////////////
-//   ESP8266-01
-///////////////////////////////////////////////////////////////////////////
-#define TX_PIN 7
-#define RX_PIN 6
-
-///////////////////////////////////////////////////////////////////////////
 //   WIFI
 ///////////////////////////////////////////////////////////////////////////
 #define WIFI_SSID "wifi_ssid"
@@ -30,27 +24,20 @@
 #define MQTT_PAYLOAD_ON "ON"
 #define MQTT_PAYLOAD_OFF "OFF"
 
-#undef  MQTT_CONNECTION_TIMEOUT
-#define MQTT_CONNECTION_TIMEOUT 5000
-
 ///////////////////////////////////////////////////////////////////////////
 //   Door sensors
 ///////////////////////////////////////////////////////////////////////////
 
 #define DOOR_SENSOR_NAME_01 "door01"
-#define DOOR_PIN_01 9
-
+#define DOOR_PIN_01 D1
 #define DOOR_SENSOR_NAME_02 "door02"
-#define DOOR_PIN_02 10
-
+#define DOOR_PIN_02 D2
 #define DOOR_SENSOR_NAME_03 "door03"
-#define DOOR_PIN_03 11
-
+#define DOOR_PIN_03 D5
 #define DOOR_SENSOR_NAME_04 "door04"
-#define DOOR_PIN_04 12
-
+#define DOOR_PIN_04 D6
 #define DOOR_SENSOR_NAME_05 "door05"
-#define DOOR_PIN_05 13
+#define DOOR_PIN_05 D7
 
 ///////////////////////////////////////////////////////////////////////////
 //   Over-the-Air update (OTA)
