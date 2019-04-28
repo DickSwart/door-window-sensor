@@ -35,6 +35,14 @@ void SwartNinjaReedSwitch::loop(void)
     if (newStatus != this->_currentState)
     {
       this->_currentState = newStatus;
+
+#ifdef DEBUG
+      Serial.print("[SwartNinaReedSwitch]: Pin ");
+      Serial.print(this->_pin);
+      Serial.print(" = ");
+      Serial.println(this->_currentState ? "ON" : "OFF");
+#endif
+
       this->_callback(this->_currentState, this->_pin);
     }
   }
@@ -44,15 +52,17 @@ bool SwartNinjaReedSwitch::getCurrentState(void)
 {
   return this->_currentState;
 }
+
+int SwartNinjaReedSwitch::getPinNumber(void)
+{
+  return this->_pin;
+}
+
 ///////////////////////////////////////////////////////////////////////////
 //  Private methods
 ///////////////////////////////////////////////////////////////////////////
 
 bool SwartNinjaReedSwitch::_readState(void)
 {
-  // Se need to switch the pin is HIGH it should be false
-  // and when it is LOW it should be true for Home Assistant.
-  // ON  - Open
-  // OFF - Closed
-  return !digitalRead(_pin);
+  return digitalRead(_pin);
 }
