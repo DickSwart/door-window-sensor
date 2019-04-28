@@ -139,7 +139,7 @@ void handleDoorStateUpdate(bool state, int pinNumber)
   switch (pinNumber)
   {
   case DOOR_PIN_01:
-    if (state)
+    if (!state)
     {
       publishToMQTT(MQTT_DOOR_SENSOR_01_TOPIC, MQTT_PAYLOAD_ON);
     }
@@ -149,7 +149,7 @@ void handleDoorStateUpdate(bool state, int pinNumber)
     }
     break;
   case DOOR_PIN_02:
-    if (state)
+    if (!state)
     {
       publishToMQTT(MQTT_DOOR_SENSOR_02_TOPIC, MQTT_PAYLOAD_ON);
     }
@@ -160,7 +160,7 @@ void handleDoorStateUpdate(bool state, int pinNumber)
 
     break;
   case DOOR_PIN_03:
-    if (state)
+    if (!state)
     {
       publishToMQTT(MQTT_DOOR_SENSOR_03_TOPIC, MQTT_PAYLOAD_ON);
     }
@@ -170,7 +170,7 @@ void handleDoorStateUpdate(bool state, int pinNumber)
     }
     break;
   case DOOR_PIN_04:
-    if (state)
+    if (!state)
     {
       publishToMQTT(MQTT_DOOR_SENSOR_04_TOPIC, MQTT_PAYLOAD_ON);
     }
@@ -180,7 +180,7 @@ void handleDoorStateUpdate(bool state, int pinNumber)
     }
     break;
   case DOOR_PIN_05:
-    if (state)
+    if (!state)
     {
       publishToMQTT(MQTT_DOOR_SENSOR_05_TOPIC, MQTT_PAYLOAD_ON);
     }
@@ -286,8 +286,8 @@ void loopWiFiSensor(void)
     if (isnan(previousWiFiSignalStrength) || currentWiFiSignalStrength <= previousWiFiSignalStrength - WIFI_QUALITY_OFFSET_VALUE || currentWiFiSignalStrength >= previousWiFiSignalStrength + WIFI_QUALITY_OFFSET_VALUE)
     {
       previousWiFiSignalStrength = currentWiFiSignalStrength;
-      // dtostrf(currentWiFiQuality, 2, 2, MQTT_PAYLOAD);
-      // publishToMQTT(MQTT_WIFI_QUALITY_TOPIC, MQTT_PAYLOAD);
+      dtostrf(currentWiFiSignalStrength, 2, 2, MQTT_PAYLOAD);
+      publishToMQTT(MQTT_WIFI_QUALITY_TOPIC, MQTT_PAYLOAD);
     }
   }
 }
