@@ -11,5 +11,5 @@ Arduino Door / Window sensor for D1 Mini board with multiple reed switches, comu
 
 ## Fritzing Sketch
 <p align="center">
-  <img src="/extras/FritzingSketch.jpg">
+  <img src="/assets/FritzingSketch.jpg">
 </p>
